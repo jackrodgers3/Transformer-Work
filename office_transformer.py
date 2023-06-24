@@ -5,13 +5,22 @@ torch.manual_seed(23)
 #hyperparameters
 batch_size = 32
 block_size = 8
-learning_rate = 1e-2
-train_iter = 8000
+learning_rate = 1e-3
+max_iters = 6000
+eval_interval = 300
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
+eval_iters = 200
+n_embd = 32
+
 
 with open("Data/office_transcripts.txt", 'r', encoding='utf-8') as f:
     text = f.read()
 
+chars = sorted(list(set(text)))
+vocab_size = len(chars)
+
+print("Length of text:", len(text))
+print("Number of characters:", len(chars))
 
 def preprocess_text(text):
     ind1 = 0
@@ -30,15 +39,9 @@ def preprocess_text(text):
             text = text[:ind1-2]+text[ind2+2:]
             counts = counts + 1
             print(counts)
+
     return text
 
-#print(text[:500])
-#print("Char length of text file: {}".format(len(text)))
-#print("Unique characters: ")
-chars = sorted(list(set(text)))
-vocab_size = len(chars)
-#print(''.join(chars))
-#print(len(chars))
 
 #making encoder (string -> #) and decoder (# -> string)
 stoi = {ch: i for i, ch in enumerate(chars)}
@@ -46,13 +49,25 @@ itos = {i: ch for i, ch in enumerate(chars)}
 encode = lambda s: [stoi[c] for c in s]
 decode = lambda l: ''.join([itos[i] for i in l])
 
-#print(encode("Hello there!"))
-#print(decode(encode("Hello there!")))
 
 data = torch.tensor(encode(text), dtype=torch.long)
 n = int(0.9*len(data))
 train_data = data[:n]
 valid_data = data[n:]
+
+@torch.no_grad()
+def estimate_loss():
+    out = {}
+    model.eval()
+    for split in ['train', 'valid']:
+        losses = torch.zeros(eval_iters)
+        for k in range(eval_iters):
+            X, Y = get_batch(split)
+            logits, loss = model(X, Y)
+            losses[k] = loss.item()
+        out[split] = losses.mean()
+    model.train()
+    return out
 
 def get_batch(split):
     data = train_data if split == 'train' else valid_data
@@ -62,13 +77,47 @@ def get_batch(split):
     x, y = x.to(device), y.to(device)
     return x, y
 
+class Head(nn.Module):
+    #one head of self attention
+    def __init__(self, head_size):
+        super().__init__()
+        self.query = nn.Linear(n_embd, head_size, bias=False)
+        self.key = nn.Linear(n_embd, head_size, bias=False)
+        self.value = nn.Linear(n_embd, head_size, bias=False)
+        self.register_buffer('tril', torch.tril(torch.ones(block_size, block_size)))
+
+    def forward(self, x):
+        B, T, C = x.shape
+        k = self.key(x)
+        q = self.query(x)
+        #compute affinities
+        wei = q @ k.transpose(-2, -1) * C**-0.5
+        wei = wei.masked_fill(self.tril[:T, :T] == 0, float('-inf'))
+        wei = F.softmax(wei, dim=-1)
+        v = self.value(x)
+        out = wei @ v
+        return out
+
+
+
+
+
 class BiGramLanguageModel(nn.Module):
-    def __init__(self, vocab_size):
+    def __init__(self):
         super().__init__()
         #each token leads off logits for next token
-        self.token_embedding_table = nn.Embedding(vocab_size, vocab_size)
+        self.token_embedding_table = nn.Embedding(vocab_size, n_embd) #(B, T, C)
+        self.position_embedding_table = nn.Embedding(block_size, n_embd)
+        self.sa_head = Head(n_embd)
+        self.lm_head = nn.Linear(n_embd, vocab_size) #(B, T, vocab_size)
     def forward(self, idx, targets = None):
-        logits = self.token_embedding_table(idx)
+        B, T = idx.shape
+
+        tok_emb = self.token_embedding_table(idx)
+        pos_emb = self.position_embedding_table(torch.arange(T, device=device)) #(T, C)
+        x = tok_emb + pos_emb # x holds token identities and the positions at which the tokens occur
+        x = self.sa_head(x)
+        logits = self.lm_head(x)
         if targets is None:
             loss = None
         else:
@@ -81,15 +130,17 @@ class BiGramLanguageModel(nn.Module):
 
     def generate(self, idx, max_new_tokens):
         for _ in range(max_new_tokens):
-            logits, loss = self(idx)
+            idx_cond = idx[:, -block_size:]
+            logits, loss = self(idx_cond)
             logits = logits[:, -1, :]
-            probs = F.softmax(logits, dim=1)
+            probs = F.softmax(logits, dim=-1)
             idx_next = torch.multinomial(probs, num_samples=1)
             idx = torch.cat((idx, idx_next), dim=1)
 
         return idx
 
-model = BiGramLanguageModel(vocab_size)
+model = BiGramLanguageModel()
+m = model.to(device)
 
 xb, yb = get_batch('train')
 
@@ -99,9 +150,13 @@ print(decode(model.generate(idx, max_new_tokens=500)[0].tolist()))
 #optimizer
 optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate)
 
-#simple training
-for steps in range(train_iter):
-    #sample batch
+#training
+for iter in range(max_iters):
+
+    if iter % eval_interval == 0:
+        losses = estimate_loss()
+        print(f"step {iter}: train loss {losses['train']:.4f}, val loss {losses['valid']:.4f}")
+
     xb, yb = get_batch('train')
 
     #evaluate loss
@@ -109,6 +164,7 @@ for steps in range(train_iter):
     optimizer.zero_grad(set_to_none=True)
     loss.backward()
     optimizer.step()
-print(loss.item())
 
-print(decode(model.generate(torch.zeros((1,1), dtype=torch.long), max_new_tokens=500)[0].tolist()))
+
+context = torch.zeros((1,1), dtype=torch.long, device=device)
+print(decode(m.generate(context, max_new_tokens=500)[0].tolist()))
