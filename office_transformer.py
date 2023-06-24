@@ -45,7 +45,7 @@ encode = lambda s: [stoi[c] for c in s]
 decode = lambda l: ''.join([itos[i] for i in l])
 
 
-data = torch.tensor(encode(text), dtype=torch.long)
+data = torch.tensor(encode(text), dtype=torch.long, device=device)
 n = int(0.9*len(data))
 train_data = data[:n]
 valid_data = data[n:]
@@ -53,15 +53,15 @@ valid_data = data[n:]
 @torch.no_grad()
 def estimate_loss():
     out = {}
-    model.eval()
+    m.eval()
     for split in ['train', 'valid']:
         losses = torch.zeros(eval_iters)
         for k in range(eval_iters):
             X, Y = get_batch(split)
-            logits, loss = model(X, Y)
+            logits, loss = m(X, Y)
             losses[k] = loss.item()
         out[split] = losses.mean()
-    model.train()
+    m.train()
     return out
 
 def get_batch(split):
@@ -178,8 +178,8 @@ m = model.to(device)
 
 xb, yb = get_batch('train')
 
-logits, loss = model(xb, yb)
-idx = torch.zeros((1,1), dtype=torch.long)
+logits, loss = m(xb, yb)
+idx = torch.zeros((1,1), dtype=torch.long, device=device)
 print(decode(model.generate(idx, max_new_tokens=printed_tokens)[0].tolist()))
 #optimizer
 optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate)
@@ -194,7 +194,7 @@ for iter in range(max_iters):
     xb, yb = get_batch('train')
 
     #evaluate loss
-    logits, loss = model(xb, yb)
+    logits, loss = m(xb, yb)
     optimizer.zero_grad(set_to_none=True)
     loss.backward()
     optimizer.step()
