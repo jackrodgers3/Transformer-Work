@@ -2,9 +2,10 @@ import torch
 import torch.nn as nn
 from torch.nn import functional as F
 from torchinfo import summary
+import matplotlib.pyplot as plt
 
 #hyperparameters
-batch_size = 32
+batch_size = 64
 block_size = 48
 max_iters = 5000
 eval_interval = 500
@@ -12,14 +13,14 @@ learning_rate = 1.5e-3
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 print(device)
 eval_iters = 200
-n_embd = 64
+n_embd = 32
 n_heads = 4
 n_layer = 6
-dropout = 0.0
+dropout = 0.05
 printed_tokens = 2000
 # ============
 
-torch.manual_seed(23)
+#torch.manual_seed(23)
 
 with open('Data/rick_and_morty.txt', 'r', encoding='utf-8') as f:
     text = f.read()
@@ -27,6 +28,8 @@ with open('Data/rick_and_morty.txt', 'r', encoding='utf-8') as f:
 #unique characters
 chars = sorted(list(set(text)))
 vocab_size = len(chars)
+print("Text Length: ",len(text))
+print("Vocab size: ", vocab_size)
 
 #making encoder (string -> #) and decoder (# -> string)
 stoi = {ch: i for i, ch in enumerate(chars)}
@@ -178,12 +181,20 @@ m = model.to(device)
 
 optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate)
 
-for iter in range(max_iters):
+#lists for plotting
+epochs = []
+train_loss = []
+valid_loss = []
+
+for iter in range(max_iters + 1):
 
     #evaluate loss on train and val sets
     if iter % eval_interval == 0:
         losses = estimate_loss()
         print(f"step {iter}: train loss {losses['train']:.4f}, val loss {losses['valid']:.4f}")
+        epochs.append(iter)
+        train_loss.append(losses['train'])
+        valid_loss.append(losses['valid'])
 
     #get batch
     xb, yb = get_batch('train')
@@ -193,6 +204,14 @@ for iter in range(max_iters):
     optimizer.zero_grad(set_to_none=True)
     loss.backward()
     optimizer.step()
+
+#plotting loss
+plt.plot(epochs, train_loss, 'g', epochs, valid_loss, 'b')
+plt.xlabel('Epochs')
+plt.ylabel('Loss')
+plt.title('Loss Graph')
+plt.show()
+
 
 #generate from model
 context = torch.zeros((1,1), dtype=torch.long, device=device)
