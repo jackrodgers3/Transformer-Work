@@ -9,7 +9,7 @@ batch_size = 64
 block_size = 48
 max_iters = 5000
 eval_interval = 500
-learning_rate = 1.5e-3
+learning_rate = 2e-3
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 print(device)
 eval_iters = 200
