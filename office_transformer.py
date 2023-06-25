@@ -151,7 +151,7 @@ class BiGramLanguageModel(nn.Module):
         pos_emb = self.position_embedding_table(torch.arange(T, device=device)) #(T, C)
         x = tok_emb + pos_emb # x holds token identities and the positions at which the tokens occur
         x = self.blocks(x)
-        logits = self.lm_head(x)
+        logits = self.lm_head(self.ln_f(x))
         if targets is None:
             loss = None
         else:

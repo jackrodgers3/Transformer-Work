@@ -1,10 +1,10 @@
 import torch
 import torch.nn as nn
 from torch.nn import functional as F
-
+from torchinfo import summary
 
 #hyperparameters
-batch_size = 64
+batch_size = 32
 block_size = 48
 max_iters = 5000
 eval_interval = 500
@@ -12,7 +12,11 @@ learning_rate = 1.5e-3
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 print(device)
 eval_iters = 200
-n_embd = 32
+n_embd = 64
+n_heads = 4
+n_layer = 6
+dropout = 0.0
+printed_tokens = 2000
 # ============
 
 torch.manual_seed(23)
@@ -59,22 +63,6 @@ def estimate_loss():
     model.train()
     return out
 
-class LayerNorm:
-    def __init__(self, dim, eps=1e-5):
-        self.eps = eps
-        self.gamma = torch.ones(dim)
-        self.beta = torch.ones(dim)
-
-    def __call__(self, x):
-        #calculate forward pass
-        xmean = x.mean(1, keepdim=True) #layer mean
-        xvar = x.var(1, keepdim=True) #layer variance
-        xhat = (x - xmean) / torch.sqrt(xvar + self.eps)
-        self.out = self.gamma * xhat + self.beta
-        return self.out
-
-    def parameters(self):
-        return [self.gamma, self.beta]
 class Head(nn.Module):
     #One head of self-attention
 
@@ -84,6 +72,7 @@ class Head(nn.Module):
         self.query = nn.Linear(n_embd, head_size, bias=False)
         self.value = nn.Linear(n_embd, head_size, bias=False)
         self.register_buffer('tril', torch.tril(torch.ones(block_size, block_size)))
+        self.dropout = nn.Dropout(dropout)
 
     def forward(self, x):
         B, T, C = x.shape
@@ -94,6 +83,7 @@ class Head(nn.Module):
         wei = wei.masked_fill(self.tril[:T, :T] == 0, float('-inf'))
         wei = F.softmax(wei, dim=-1)
         #perform weighted aggregation
+        wei = self.dropout(wei)
         v = self.value(x)
         out = wei @ v
         return out
@@ -104,9 +94,10 @@ class MultiHeadAttention(nn.Module):
         super().__init__()
         self.heads = nn.ModuleList([Head(head_size) for _ in range(num_heads)])
         self.proj = nn.Linear(n_embd, n_embd)
+        self.dropout = nn.Dropout(dropout)
     def forward(self, x):
         out = torch.cat([h(x) for h in self.heads], dim=-1)
-        out = self.proj(out)
+        out = self.dropout(self.proj(out))
         return out
 
 
@@ -118,6 +109,7 @@ class FeedForward(nn.Module):
             nn.Linear(n_embd, 4 * n_embd),
             nn.ReLU(),
             nn.Linear(4 * n_embd, n_embd),
+            nn.Dropout(dropout),
         )
     def forward(self, x):
         return self.net(x)
@@ -143,15 +135,8 @@ class BigramLanguageModel(nn.Module):
         #each token directly leads off logits for the next token
         self.token_embedding_table = nn.Embedding(vocab_size, n_embd)
         self.position_embedding_table = nn.Embedding(block_size, n_embd)
-        self.blocks = nn.Sequential(
-            Block(n_embd, n_head=4),
-            Block(n_embd, n_head=4),
-            Block(n_embd, n_head=4),
-            Block(n_embd, n_head=4),
-            Block(n_embd, n_head=4),
-            Block(n_embd, n_head=4),
-            nn.LayerNorm(n_embd),
-        )
+        self.blocks = nn.Sequential(*[Block(n_embd, n_head=n_heads) for _ in range(n_layer)])
+        self.ln_f = nn.LayerNorm(n_embd)  # final norm layer
         self.lm_head = nn.Linear(n_embd, vocab_size)
 
     def forward(self, idx, targets=None):
@@ -161,7 +146,7 @@ class BigramLanguageModel(nn.Module):
         pos_emb = self.position_embedding_table(torch.arange(T, device=device)) #(T, C)
         x = tok_emb + pos_emb #(B, T, C)
         x = self.blocks(x)
-        logits = self.lm_head(x) #(B, T, vocab_size)
+        logits = self.lm_head(self.ln_f(x)) #(B, T, vocab_size)
         if targets is None:
             loss = None
         else:
@@ -211,4 +196,4 @@ for iter in range(max_iters):
 
 #generate from model
 context = torch.zeros((1,1), dtype=torch.long, device=device)
-print(decode(m.generate(context, max_new_tokens=2000)[0].tolist()))
+print(decode(m.generate(context, max_new_tokens=printed_tokens)[0].tolist()))
