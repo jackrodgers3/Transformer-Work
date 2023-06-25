@@ -182,9 +182,11 @@ m = model.to(device)
 optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate)
 
 #lists for plotting
+'''
 epochs = []
 train_loss = []
 valid_loss = []
+'''
 
 for iter in range(max_iters + 1):
 
@@ -192,9 +194,11 @@ for iter in range(max_iters + 1):
     if iter % eval_interval == 0:
         losses = estimate_loss()
         print(f"step {iter}: train loss {losses['train']:.4f}, val loss {losses['valid']:.4f}")
+        '''
         epochs.append(iter)
         train_loss.append(losses['train'])
         valid_loss.append(losses['valid'])
+        '''
 
     #get batch
     xb, yb = get_batch('train')
@@ -206,12 +210,13 @@ for iter in range(max_iters + 1):
     optimizer.step()
 
 #plotting loss
+'''
 plt.plot(epochs, train_loss, 'g', epochs, valid_loss, 'b')
 plt.xlabel('Epochs')
 plt.ylabel('Loss')
 plt.title('Loss Graph')
 plt.show()
-
+'''
 
 #generate from model
 context = torch.zeros((1,1), dtype=torch.long, device=device)
