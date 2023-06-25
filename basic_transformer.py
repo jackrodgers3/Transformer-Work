@@ -4,11 +4,11 @@ from torch.nn import functional as F
 
 
 #hyperparameters
-batch_size = 32
-block_size = 8
+batch_size = 64
+block_size = 48
 max_iters = 5000
 eval_interval = 500
-learning_rate = 1e-3
+learning_rate = 1.5e-3
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 print(device)
 eval_iters = 200
@@ -17,7 +17,7 @@ n_embd = 32
 
 torch.manual_seed(23)
 
-with open('Data/input.txt', 'r', encoding='utf-8') as f:
+with open('Data/rick_and_morty.txt', 'r', encoding='utf-8') as f:
     text = f.read()
 
 #unique characters
@@ -147,6 +147,9 @@ class BigramLanguageModel(nn.Module):
             Block(n_embd, n_head=4),
             Block(n_embd, n_head=4),
             Block(n_embd, n_head=4),
+            Block(n_embd, n_head=4),
+            Block(n_embd, n_head=4),
+            Block(n_embd, n_head=4),
             nn.LayerNorm(n_embd),
         )
         self.lm_head = nn.Linear(n_embd, vocab_size)
@@ -208,4 +211,4 @@ for iter in range(max_iters):
 
 #generate from model
 context = torch.zeros((1,1), dtype=torch.long, device=device)
-print(decode(m.generate(context, max_new_tokens=500)[0].tolist()))
+print(decode(m.generate(context, max_new_tokens=2000)[0].tolist()))

@@ -202,3 +202,4 @@ for iter in range(max_iters):
 
 context = torch.zeros((1,1), dtype=torch.long, device=device)
 print(decode(m.generate(context, max_new_tokens=printed_tokens)[0].tolist()))
+
