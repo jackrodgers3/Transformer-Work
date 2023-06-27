@@ -3430,7 +3430,7 @@ Sir, they're over the edge.
 
 Yes, they are.
 
-Just...as...planned.
+Just as planned.
 
 Oh, this is going to be such a mind fuck
 
@@ -6921,7 +6921,7 @@ Hey, isn't Gazorpazorp where uh... where those Sex robots came from, remember?
 
 That whole thing?
 
-Yeah... hey, that's pretty, pretty... that's true.
+Yeah... hey, that's pretty true.
 
 That's right!
 
@@ -6933,7 +6933,7 @@ Boy. Fuck you, Jon. You fucking dumb, stupid, idiot.
 
 Come on, Gazorpazorpfield, go easy on me, huh?
 
-You dumb, stupid, weak, pathetic, white, white... uh, uh... guilt, white guilt, milquetoast piece of human garbage.
+You dumb, stupid, weak, pathetic, white guilt, milquetoast piece of human garbage.
 
 Jeez, Gazorpazorpfield, thats, you know... you're pretty mean to me, but that takes the cake.
 
@@ -7109,9 +7109,9 @@ That's the sound I make, when I'm trying to run fast.
 
 All right, I'm not going to get him.
 
-I'm, I-I just learned a real valuable lesson.
+I'm, I just learned a real valuable lesson.
 
-I'm coming, Baby Legs! I'm... Regular Legs!
+I'm coming, Baby Legs! I'm Regular Legs!
 
 We got him!
 
@@ -7131,9 +7131,9 @@ Uh, I thought it was cool.
 
 I don't give a fuck what you think, Jerry.
 
-Hey, uh... Y-Y-Y-You doin' okay?
+Hey, uh... You doing okay?
 
-I-I-I kind of know how you feel, Summer.
+I kind of know how you feel, Summer.
 
 No, you don't. You're the little brother.
 
@@ -7201,7 +7201,7 @@ Hey Morty, you just missed a preview for your Dad's "Citizen Kane".
 
 Doesn't matter.
 
-Hey, if your, uh, mother and I had to split custody... who would you guys choose?
+Hey, if your, uh, mother and I had to split custody, who would you guys choose?
 
 Doesn't matter.
 
@@ -7681,7 +7681,7 @@ Jerry Smith is a scientist from earth, where he's creating a model of our solar 
 
 Jerry, tell Pluto about your decision.
 
-Um... Pluto's a planet.
+Pluto's a planet.
 
 Pluto's a fucking planet, bitch!
 
@@ -8200,7 +8200,7 @@ You stupid bitch.
 
 How do you like that?
 
-W-w-why?
+Why?
 
 Because sometimes what you really need is for someone else to pay a horrible price.
 
@@ -8360,7 +8360,7 @@ You have a history of non-cooperation with the council.
 
 Yeah, so does the scientist formerly known as Rick.
 
-W-w-w-w-w-why isn't he here in handcuffs?
+Why isn't he here in handcuffs?
 
 Because he's dead, too!
 
@@ -9626,15 +9626,15 @@ Kalaxian crystals, Morty, just a few miles South of here.
 
 Okay. Let's go, then.
 
-W-w-we got to go get those crystals right now, Rick.
+We got to go get those crystals right now, Rick.
 
 Whoa, whoa, whoa.
 
-Morty, Morty, I-I can't go with you.
+Morty, Morty, I can't go with you.
 
 I got to hang back and make sure everything stays cool here, you know?
 
-I mean, who knows what -- what if somebody breaks something?
+I mean, who knows what if somebody breaks something?
 
 Yeah. Me too.
 
@@ -9703,7 +9703,7 @@ We've been dreaming about this for 16 years.
 
 Um, not like this.
 
-Not -- not with you.
+Not with you.
 
 You are gonna draw me.
 
@@ -10061,7 +10061,7 @@ I have a new catchphrase.
 
 Oh, yeah?
 
-What -- what's that, Rick?
+What's that, Rick?
 
 I love my grandkids.
 
@@ -10385,7 +10385,7 @@ What happened?
 
 I hit a deer.
 
-We... we have to tell the cops you were driving.
+We have to tell the cops you were driving.
 
 What?
 
@@ -10457,7 +10457,7 @@ Oh fuck
 
 What the hell is wrong with you two?
 
-I-I-I-I mean you four!
+I mean you four!
 
 Both: That hurt! That was painful.
 
@@ -10639,7 +10639,7 @@ Oh, God, now there's three of them.
 
 We're outnumbered. Get in the cupboards.
 
-Wait, don't... don't do that.
+Wait, don't do that.
 
 They'll know. Wait, wait.
 
@@ -11296,7 +11296,7 @@ Hey, man. Remember me?
 
 I got something for your ass.
 
-Don't... mess... with time!
+Don't mess with time!
 
 You don't fuck with time!
 
@@ -11860,7 +11860,7 @@ Uh.
 
 No gear-turnings as of yet in the curious case of these unidentified humanoid fugitives, reportedly at large somewhere within the gear system.
 
-Son of a...
+Son of a bitch.
 
 Why were the gromflamites holding you prisoner?
 
@@ -12708,7 +12708,7 @@ He might have it chained up so that it doesn't eat the planet!
 
 Right, because your father's such an altruist?
 
-I once saw him brfly forget the word for "humans."
+I once saw him briefly forget the word for "humans."
 
 He's probably harvesting this creature's organs.
 
@@ -12875,8 +12875,6 @@ I'd laugh, but I'm biologically incapable.
 That's how alien I am.
 
 And even I'm sitting here listening to the two of you and being like, "what the fuck" so good luck with your shitty marriage, and tell Rick I'm sorry he has to deal with either of you.
-
-Blim blam out.
 
 You know what? I'm taking this.
 
@@ -13194,7 +13192,7 @@ You think there's some other word that will hurt my feelings?
 
 Yeah. Think before you talk motherfucker!
 
-Rah-gubaba, help me kill america!
+Help me kill america!
 
 all: Mr. Beauregard!
 
@@ -13652,7 +13650,7 @@ Oh, oh, oh, really?
 
 Well, I remember you as a whiny, little piece of shit Morty!
 
-Oh -- oh, yeah?
+Oh, yeah?
 
 Yeah!
 
@@ -13682,7 +13680,7 @@ I know you're real because I have a ton of bad memories with you!
 
 Holy crap, Morty, you're right.
 
-Is -- is -- isn't that what you were trying to make me understand by yelling at me?
+Isn't that what you were trying to make me understand by yelling at me?
 
 Well, yeah, duh-doy.
 
@@ -13898,7 +13896,7 @@ Why?
 
 Oh, my god, oh, my god, oh, my god, Mr. Poopybutthole.
 
-I-I thought --
+I thought --
 
 Keep breathing!
 
@@ -14531,7 +14529,7 @@ You know what I'm saying?
 
 Ice, I don't want to be a negative Nelly or anything, but if Morty doesn't come back with my portal gun and I eat it out there, it's, uh, you know, kind of your problem, too.
 
-Pfft! I ain't worried about no earth blowing up, man.
+I ain't worried about no earth blowing up, man.
 
 What? Why not?
 
@@ -14887,7 +14885,7 @@ We go get some ice cream, motherfucker!
 
 Oh, great.
 
-Oh, boy. W-what's wrong, Rick? Is it the quantum carburetor or something?
+Oh, boy. What's wrong, Rick? Is it the quantum carburetor or something?
 
 "Quantum carburetor"? Jesus, Morty. You can't just add a sci-fi word to a car word and hope it means something.
 
@@ -15552,7 +15550,7 @@ They eat every third baby because they think it makes fruit grow bigger.
 
 Everyone's gross, and they all smell like piss all the time.
 
-I m-- I miss my family. I miss my laptop.
+I miss my family. I miss my laptop.
 
 I masturbated to an extra-curvy piece of driftwood the other day!
 
@@ -16002,7 +16000,7 @@ Go to the garage, transfer your mind into a younger clone of yourself, and get e
 
 So here I am. I'm tiny Rick!
 
-O-o-okay.
+Okay.
 
 Well, it's good you're here, Rick.
 
@@ -19002,7 +19000,7 @@ Oh, boy. Oh, dad.
 
 Jesus.
 
-But... but... Here's the thing.
+But here's the thing.
 
 Birdperson is my best friend, and if he loves Tammy, well, then I love Tammy, too.
 
@@ -19026,7 +19024,7 @@ In a lot of ways, what I really am is a deep-cover agent for the galactic federa
 
 Oh, shit.
 
-I...Don't get the metaphor.
+I don't get the metaphor.
 
 I'll explain it to you later.
 
@@ -19096,7 +19094,7 @@ Fuck You, Summer, and fuck the government, and fuck me for letting my guard down
 
 Geez, Rick!
 
-You can't say f... "'f' you" to your granddaughter.
+You can't say "fuck you" to your granddaughter.
 
 I just did, Morty. Here's dessert. Fuck You.
 
@@ -19170,7 +19168,7 @@ Let's go down and check her out.
 
 Oh. I thought it was further away.
 
-I uh... I guess this one's a little small.
+I guess this one's a little small.
 
 All right, uh, maybe... maybe we should go check out the other two, huh?
 
@@ -19452,11 +19450,11 @@ Or longer to see how we unravel this mess.
 
 Ooh-whee!
 
-RICK: Anyway, that's how I escaped from space prison!
+Rick: Anyway, that's how I escaped from space prison!
 
 Oh, scary place.
 
-Wow, Rick! That's-- That's one-- One heck of a story.
+Wow, Rick! That's one heck of a story.
 
 I sure do wish I could have been there to see it happen.
 
@@ -20064,7 +20062,7 @@ Everything right is wrong.
 
 All you know is that you know nothing and he knows everything.
 
-And, well -- well, he's not a villain, Summer, but he shouldn't be your hero.
+And, well, he's not a villain, Summer, but he shouldn't be your hero.
 
 He's more like a demon or a super fucked up god.
 
@@ -20472,8 +20470,6 @@ Yeah, but Phoenix Person?
 Fine, fuck it.
 Who cares?
 
-Ka-kaw!
-
 Ohh!
 
 Summer, next time we're hiding in a Colorkian echo nest, can you do me a favor and turn your ringer off?
@@ -20880,7 +20876,7 @@ Alternatively, I have a freaking portal gun, and I can leave the two of you here
 
 Why does it have to be such a dramatic choice?
 
-Can't we arrange a thing where we spend weekends here or... or visit home to do laundry?
+Can't we arrange a thing where we spend weekends here or visit home to do laundry?
 
 All right, you know what?
 
@@ -20896,7 +20892,7 @@ Dad?
 Hi, sweetie.
 
 Where are the kids?
-Oh, th... they aren't with you?
+Oh, they aren't with you?
 
 I thought they were with you.
 
@@ -20922,9 +20918,8 @@ Good for you, good for the kids.
 
 I mean, honestly, I think that they're flourishing.
 
-I mean, you'll see, when... When... when you see them, that... that they're totally flourishing.
+I mean, you'll see, when you see them, that they're totally flourishing.
 
-Booyah!
 Fuck you, pal!
 
 Who else wants some?
@@ -22583,7 +22578,7 @@ Little extra snippy this morning, aren't you?
 
 Just focus on the mission, all right?
 
-Oh-oh-oh, I'm sorry, oh, you're right.
+Oh, I'm sorry, oh, you're right.
 
 Ohh, real serious.
 Gotta take it real serious, huh?
@@ -22840,8 +22835,8 @@ I just need to rest my eyes, so let's make this one simple...
 
 Just try to hit some three pointers.
 
-Let's say... you have to hit... five three pointers in... five minutes... or...
-I don't know, the whole place... the whole planet will get blown up with a neutrino bomb.
+Let's say you have to hit five three pointers in five minutes or...
+I don't know, the whole planet will get blown up with a neutrino bomb.
 
 And try to make it a lesson about yourselves, like how selfish you are or something.
 
@@ -22849,7 +22844,7 @@ And also Hawaii.
 
 You guys hit the baskets, I'll disarm the drunkenly-improvised neutrino bomb.
 
-There's a percent chance it's a dud, but y-you should still stay back.
+There's a percent chance it's a dud, but you should still stay back.
 
 Morty, how many of these...
 
@@ -22945,7 +22940,7 @@ He was better than you.
 
 Yeah?
 
-One... million... times... better.
+One million times better.
 
 All aboard, fuck.
 
@@ -23051,15 +23046,15 @@ I mean, he's a moron, that's their demographic.
 
 But you're different, Noob Noob.
 
-Mother fuck...
+Motherfucker.
 
 You're fucking cool.
 And you're smart.
 
 And I bet we could have hung out and shit.
 
-And I hope you get to be a full-fledged Vindicator and... and do...
-Do me a favor, don't... don't let them know
+And I hope you get to be a full-fledged Vindicator and...
+Do me a favor, don't let them know
 I got emotional.
 
 But you can tell them one thing.
@@ -23430,7 +23425,7 @@ Thank you, sir.
 Yeah, of course he likes it.
 Look at him.
 
-fuck got two heads and three trunks.
+Fucker's got two heads and three trunks.
 
 All right, we'll put a pin in it.
 
@@ -24232,7 +24227,7 @@ I can't fucking do this anymore!
 That was seriously fucked up. We almost died.
 
 So you agree? Fuck yes!
-That was.. This was insane!
+This was insane!
 
 That was pure luck.
 
@@ -24412,7 +24407,7 @@ The answer is no.
 
 If God exists, it's fucking me.
 
-Yes, Rick. I... I agree, Rick.
+Yes, Rick. I agree, Rick.
 
 While you were flapping your parasitic turd holster, I discovered the toxic equivalent of electricity, Morty.
 
@@ -24700,7 +24695,7 @@ Fuck you, you little sociopath.
 
 You hear this, Morty? Oh, everybody hates me. I can tell.
 
-Y-You all hate me... All right, shut up, Morty.
+You all hate me... All right, shut up, Morty.
 
 Healthy Rick, are we doing this or what?
 
@@ -24823,7 +24818,7 @@ Ahh! Ow!
 
 Dads?
 
-Okay, just... just leave her out of it.
+Okay, just leave her out of it.
 
 What's going on?
 
@@ -24835,9 +24830,9 @@ I'll just make the whole world toxic.
 
 It's okay, girls.
 
-I... I'm so sorry I put us in danger with some of my behavior.
+I'm so sorry I put us in danger with some of my behavior.
 
-I... If you'd like I can go out in the garden, pick some fresh basil, and make us a nice Scallopini.
+If you'd like I can go out in the garden, pick some fresh basil, and make us a nice Scallopini.
 
 What did the booger version of you mean when he said he was going to make the whole world toxic?
 
@@ -25153,7 +25148,7 @@ Ready as I'll ever be, Rick.
 
 Oh, for fuck's sake.
 
-Hello, I'm Rick K- .
+Hello, I'm Rick.
 This is my Morty.
 
 We're going from reality to reality asking Ricks to contribute to the Citadel of Ricks Redevelopment Fund.
@@ -25272,7 +25267,7 @@ And we're the same age!
 - Whoa!
 
 Oh. Sorry.
-I-I was expecting...
+I was expecting...
 
 A Rick partner?
 
@@ -25830,10 +25825,10 @@ Unless he takes the money.
 
 Big Morty, you're under arrest.
 
-S... smartest man in the universe.
+Smartest man in the universe.
 
 They're just props!
-Th... they're just props!
+They're just props!
 
 Not so big now, are ya?
 
@@ -26679,14 +26674,11 @@ I'm gonna grab you by the scruff of your -- Take that!
 
 Ohh!
 
--Umm.
--Umm. Uhh.
+Umm.
 
--What --
--What's going on?
+What's going on?
 
--Where am I?
--Who are we?
+Where am I?
 
 Who am I?
 
@@ -26994,7 +26986,7 @@ I don't get paid enough for this shit!
 
 There's a Craftsman nearby. I can smell it.
 
-Whoa, what -- what --
+Whoa, what --
 
 Can I help you?
 
@@ -27018,7 +27010,7 @@ All right, Morty, fuck this noise.
 Let's get out of here and go on a classic
 
 Rick and Morty adventure.
--Yeah, right, Rick, I'm all-in.
+Yeah, right, Rick, I'm all-in.
 
 No wonder you're constantly fighting with each other and behind schedule.
 
@@ -28852,7 +28844,7 @@ And you don't know
 what I can do!
 
 Jesus!
-It's... It's cool, Rick!
+It's cool, Rick!
 
 I'm Doctor Who in this motherfucker!
 
