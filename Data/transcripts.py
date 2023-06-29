@@ -103,4 +103,13 @@ def get_unique_words(corpus_lines, num_lines):
     print(f'Number of unique words in {num_lines} lines: {len(unique_words)}')
     return sorted(unique_words)
 
-print(get_unique_words(text_lines, 1690))
+unique_words = get_unique_words(text_lines, 1690)
+text = text.lower()
+#making encoder (string -> #) and decoder (# -> string)
+stoi = {ch: i for i, ch in enumerate(unique_words)}
+itos = {i:ch for i,ch in enumerate(unique_words)}
+print(stoi)
+encode = lambda text: [stoi[c] for c in text]
+decode = lambda l: ''.join([itos[i] for i in l])
+
+print(encode("hello there, friend"))
