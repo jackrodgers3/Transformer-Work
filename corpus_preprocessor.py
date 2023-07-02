@@ -1,9 +1,9 @@
 
 
-with open('inception.txt', 'r', encoding='utf-8') as f:
-    text_lines = f.readlines()[5:]
+with open('Data/inception.txt', 'r', encoding='utf-8') as f:
+    text_lines = f.readlines()
 f.close()
-with open('inception.txt', 'r', encoding='utf-8') as f:
+with open('Data/inception.txt', 'r', encoding='utf-8') as f:
     text = f.read()
 f.close()
 
@@ -94,13 +94,38 @@ def get_unique_words(corpus_lines, num_lines):
         for j in range(len(words_in_line)):
             if unique_words.count(words_in_line[j]) == 0:
                 unique_words.append(words_in_line[j])
-    unique_words.append('!')
-    unique_words.append('?')
-    unique_words.append(':')
-    unique_words.append(',')
-    unique_words.append('.')
+    #unique_words.append('!')
+    #unique_words.append('?')
+    #unique_words.append(':')
+    #unique_words.append(',')
+    #unique_words.append('.')
+    unique_words.append(' ')
     unique_words.append('\n')
     print(f'Number of unique words in {num_lines} lines: {len(unique_words)}')
     return sorted(unique_words)
 
-print(get_unique_words(text_lines, 1690))
+unique_words = get_unique_words(text_lines, 1690)
+text = text.lower().replace('.', '').replace('!', '').replace('?', '').replace(':', '').replace(',','')\
+    .replace('i’ve', 'i have').replace('i’ll', 'i will').replace('it’s', 'it is').replace('he’s', 'he is')\
+    .replace('you’re', 'you are').replace('we’re', 'we are').replace('he’ll', 'he will')\
+    .replace('that’ll', 'that will')
+
+text1 = text.split('\n\n')
+text3 = []
+for i in range(1670):
+    if text1[i].find(' ') != -1:
+        text2 = text1[i].split(' ')
+        for j in range(len(text2)):
+            text3.append(text2[j])
+    text3.append('\n')
+    text3.append('\n')
+#print(text3)
+
+#making encoder (string -> #) and decoder (# -> string)
+stoi = {ch: i for i, ch in enumerate(unique_words)}
+itos = {i:ch for i,ch in enumerate(unique_words)}
+
+encode = lambda line: [stoi[word] for word in text3[:line]]
+decode = lambda l: ''.join([itos[i] for i in l])
+print(stoi)
+print(encode(100))
