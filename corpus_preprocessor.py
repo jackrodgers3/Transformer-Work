@@ -1,9 +1,9 @@
 
 
-with open('inception.txt', 'r', encoding='utf-8') as f:
+with open('Data/inception.txt', 'r', encoding='utf-8') as f:
     text_lines = f.readlines()
 f.close()
-with open('inception.txt', 'r', encoding='utf-8') as f:
+with open('Data/inception.txt', 'r', encoding='utf-8') as f:
     text = f.read()
 f.close()
 
@@ -128,4 +128,4 @@ itos = {i:ch for i,ch in enumerate(unique_words)}
 encode = lambda line: [stoi[word] for word in text3[:line]]
 decode = lambda l: ''.join([itos[i] for i in l])
 print(stoi)
-print(encode(6))
+print(encode(100))
