@@ -137,6 +137,7 @@ This isn’t gonna work. Wake him up.
 He won’t wake.
 
 Give him the kick.
+
 What?
 
 Dunk him.
@@ -208,6 +209,7 @@ You have lived up to your reputation, Mr Cobb.
 I’m still dreaming.
 
 How’d it go?
+
 Not good.
 
 Dream within a dream, huh? I’m impressed.
@@ -249,6 +251,7 @@ Listen. Every man for himself.
 Yes, hello?
 
 Hi, Daddy.
+
 Hi, Dad.
 
 Hey, guys. Hey. How are you? How you doing, huh?
@@ -298,6 +301,7 @@ Listen, I’m gonna send some presents with Grandpa, all right?
 And you be good, you be
 
 Our ride’s on the roof.
+
 Right.
 
 Hey, are you okay?
@@ -892,8 +896,7 @@ But all of that stuff, it’s...
 
 It’s really at the mercy of your subject’s prejudice, you see?
 
-What you have to do is start
-at the absolute basic.
+What you have to do is start at the absolute basic.
 
 Which is what?
 
