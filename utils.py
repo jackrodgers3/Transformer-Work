@@ -74,6 +74,8 @@ def separator(text):
     return breakup6
 
 def simple_separator(text):
+    #separates words, space, period, newline, question mark, and comma
+    text = text.replace('"','')
     breakup = text.split(' ')
     breakup2 = []
     for i in range(len(breakup)):
