@@ -39,19 +39,19 @@ print(encode(EX_TEXT))
 print(decode(encode(EX_TEXT)))
 
 
-batch_size = 4
-block_size = 16
+batch_size = 16
+block_size = 64
 max_iters = 1000
 eval_interval = 200
-learning_rate = 2e-3
+learning_rate = 1e-2
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print(device)
 eval_iters = 200
 n_embd = 512
 n_heads = 4
 n_layer = 6
-dropout = 0.05
-printed_tokens = 20
+dropout = 0.1
+printed_tokens = 30
 # ============
 
 #torch.manual_seed(23)
@@ -205,20 +205,25 @@ model = BigramLanguageModel()
 m = model.to(device)
 
 optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate)
-
+lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=max_iters)
 #lists for plotting
 '''
 epochs = []
 train_loss = []
 valid_loss = []
 '''
-
+best_valid_loss = 1000
 for iter in range(max_iters + 1):
 
     #evaluate loss on train and val sets
     if iter % eval_interval == 0:
         losses = estimate_loss()
         print(f"step {iter}: train loss {losses['train']:.4f}, val loss {losses['valid']:.4f}")
+        if losses['valid'] < best_valid_loss:
+            best_valid_loss = losses['valid']
+            torch.save(m.state_dict(), PATH+'convo_model.pt')
+        context = torch.zeros((1,1), dtype=torch.long, device=device)
+        print(decode(m.generate(context, max_new_tokens=printed_tokens)[0].tolist()))
         '''
         epochs.append(iter)
         train_loss.append(losses['train'])
@@ -233,6 +238,7 @@ for iter in range(max_iters + 1):
     optimizer.zero_grad(set_to_none=True)
     loss.backward()
     optimizer.step()
+    lr_scheduler.step()
 
 #plotting loss
 '''
@@ -243,6 +249,3 @@ plt.title('Loss Graph')
 plt.show()
 '''
 
-#generate from model
-context = torch.zeros((1,1), dtype=torch.long, device=device)
-print(decode(m.generate(context, max_new_tokens=printed_tokens)[0].tolist()))
