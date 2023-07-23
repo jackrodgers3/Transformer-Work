@@ -224,6 +224,7 @@ for iter in range(max_iters + 1):
             torch.save(m.state_dict(), PATH+'convo_model.pt')
         context = torch.zeros((1,1), dtype=torch.long, device=device)
         print(decode(m.generate(context, max_new_tokens=printed_tokens)[0].tolist()))
+
         '''
         epochs.append(iter)
         train_loss.append(losses['train'])
